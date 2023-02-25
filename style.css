@@ -267,11 +267,82 @@ h3 {
   background-color: #000;
 }
 
+#insta {
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url(./images/social-media.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  object-fit: cover;
+  background-attachment: fixed;
+  color: var(--light-color);
+  filter: saturate(0.1);
+  min-height: 65vh;
+}
+#insta .title h2 {
+  color: var(--light-color);
+}
+#insta .title h2::after {
+  background-color: var(--light-color);
+}
+#insta .insta-grid > div {
+  height: 400px;
+  overflow: hidden;
+  transition: var(--transition);
+}
+#insta .insta-grid > div:hover {
+  transform: scale(0.9);
+}
+#insta .insta-grid > div img {
+  height: 100%;
+  object-fit: cover;
+}
+
+#footer {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+#footer .footer-content {
+  text-align: center;
+}
+#footer .footer-content > div:first-child {
+  margin-bottom: 3rem;
+}
+#footer .footer-content > div:first-child div {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  margin: 5rem auto;
+  border-radius: 50%;
+}
+#footer .footer-content h3 {
+  color: var(--light-color);
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+}
+#footer .footer-content ul {
+  flex-direction: row;
+}
+#footer .footer-content ul li {
+  margin: 0.5rem 1rem;
+}
+#footer .footer-content ul li a {
+  color: var(--light-color);
+  font-size: 1.5rem;
+  transition: var(--transition);
+}
+#footer .footer-content ul li a:hover {
+  opacity: 0.7;
+}
+
 @media (min-width: 450px) {
   .work-bottom {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 3rem;
     row-gap: 0;
+  }
+  .footer-content ul {
+    flex-direction: column;
   }
 }
 @media (min-width: 576px) {
@@ -295,12 +366,16 @@ h3 {
   .contact-left form .form-control {
     max-width: 500px;
   }
+  .footer-content ul {
+    flex-direction: row;
+  }
 }
 @media (min-width: 768px) {
   .header-content {
     font-size: 7rem;
   }
-  .about-content {
+  .about-content,
+  .work-top {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 6rem;
     row-gap: 0;
@@ -321,6 +396,17 @@ h3 {
   }
   .contact-left {
     width: 50%;
+  }
+  .insta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  .insta-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .insta-grid > div {
+    height: 25px;
   }
 }
 @media (min-width: 1200px) {

@@ -306,12 +306,111 @@
     }
   }
 
+  // Instagram
+  #insta {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url(./images/social-media.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    object-fit: cover;
+    background-attachment: fixed;
+    color: var(--light-color);
+    filter: saturate(0.1);
+    min-height: 65vh;
+
+    .title {
+      h2 {
+        color: var(--light-color);
+      }
+
+      h2::after {
+        background-color: var(--light-color);
+      }
+    }
+
+    .insta-grid {
+      &>div {
+        height: 400px;
+        overflow: hidden;
+        transition: var(--transition);
+
+        &:hover {
+          transform: scale(0.9);
+        }
+
+        img {
+          height: 100%;
+          object-fit: cover;
+        }
+
+      }
+
+    }
+  }
+
+  // Footer
+  #footer {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+
+    .footer-content {
+      text-align: center;
+
+      &>div:first-child {
+        margin-bottom: 3rem;
+
+        div {
+          width: 100px;
+          height: 100px;
+          overflow: hidden;
+          margin: 5rem auto;
+          border-radius: 50%;
+        }
+      }
+
+      h3 {
+        color: var(--light-color);
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+      }
+
+      ul {
+        flex-direction: row;
+
+        li {
+          margin: 0.5rem 1rem;
+
+          a {
+            color: var(--light-color);
+            font-size: 1.5rem;
+            transition: var(--transition);
+
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+
+        }
+      }
+    }
+
+
+
+  }
+
   // Media Query
   @media(min-width:450px) {
     .work-bottom {
       grid-template-columns: repeat(2, 1fr);
       column-gap: 3rem;
       row-gap: 0;
+    }
+
+    .footer-content {
+      ul {
+        flex-direction: column;
+      }
     }
   }
 
@@ -347,6 +446,12 @@
         }
       }
     }
+
+    .footer-content {
+      ul {
+        flex-direction: row;
+      }
+    }
   }
 
   @media(min-width:768px) {
@@ -354,7 +459,8 @@
       font-size: 7rem;
     }
 
-    .about-content {
+    .about-content,
+    .work-top {
       grid-template-columns: repeat(2, 1fr);
       column-gap: 6rem;
       row-gap: 0;
@@ -380,6 +486,20 @@
 
     .contact-left {
       width: 50%;
+    }
+
+    .insta-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media(min-width:992px) {
+    .insta-grid {
+      grid-template-columns: repeat(4, 1fr);
+
+      &>div {
+        height: 25px;
+      }
     }
   }
 
