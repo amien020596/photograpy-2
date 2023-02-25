@@ -95,7 +95,9 @@
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+    background-attachment: fixed;
     background-size: cover;
+    filter: saturate(0.1);
 
     .container {
       width: 100%;
@@ -152,6 +154,10 @@
     margin-bottom: 4rem;
     height: 480px;
     overflow: hidden;
+
+    img {
+      filter: saturate(0.1);
+    }
   }
 
   .btn-down {
@@ -191,7 +197,101 @@
     }
   }
 
+  // Work
+  #work {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url(./images/work-pic.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    object-fit: cover;
+    background-attachment: fixed;
+    color: var(--light-color);
+    filter: saturate(0.1);
+
+    .title {
+
+      h2,
+      h3 {
+        color: var(--light-color);
+      }
+
+      h2::after {
+        background-color: var(--light-color);
+      }
+    }
+  }
+
+  .work-bottom {
+    margin-top: 4rem;
+    text-align: center;
+
+    &>div {
+      .icon {
+        img {
+          width: 50px;
+          margin: 0 auto 1.7rem auto;
+          filter: invert(100%);
+        }
+      }
+    }
+  }
+
+  // Portfolio
+  .portfolio-grid {
+    &>div {
+      transition: var(--transition);
+
+      &:hover {
+        transform: scale(0.9);
+
+        img {
+          filter: saturate(1);
+        }
+      }
+    }
+
+    img {
+      filter: saturate(0.1);
+      transition: var(--transition);
+    }
+  }
+
   // Media Query
+  @media(min-width:450px) {
+    .work-bottom {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 3rem;
+      row-gap: 0;
+    }
+  }
+
+  @media(min-width:576px) {
+    .title {
+      h2 {
+        font-size: 4rem;
+      }
+    }
+
+    .portfolio-grid {
+      grid-template-columns: repeat(2, 1fr);
+
+      &>div {
+        height: 300px;
+        overflow: hidden;
+
+        img {
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .work-bottom {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
   @media(min-width:768px) {
     .header-content {
       font-size: 7rem;
@@ -208,10 +308,20 @@
     }
   }
 
-  @media(min-width:576px) {
-    .title {
-      h2 {
-        font-size: 4rem;
+  @media(min-width:1200px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(3, 1fr);
+
+      &>div {
+
+        &:nth-child(2) {
+          grid-column: 2/4;
+        }
+
+        &:nth-child(6) {
+          grid-column: 1/3;
+        }
       }
     }
+
   }
